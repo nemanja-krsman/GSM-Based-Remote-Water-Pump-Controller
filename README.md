@@ -36,10 +36,7 @@ A relay-controlled contactor switches the pump's 220 V AC power circuit, while t
 The schematic shows the electronic design connecting the microcontroller, GSM module, power regulation, and relay driver.
 
 <p align="center">
-  <img src="assets/power_supply.png" alt="Remote water pump controller circuit schematic" width="100%">
-  <img src="assets/gsm_module.png" alt="Remote water pump controller circuit schematic" width="100%">
-  <img src="assets/relay_circuit.png" alt="Remote water pump controller circuit schematic" width="100%">
-  <img src="assets/relay_switch.png" alt="Remote water pump controller circuit schematic" width="100%">
+  <img src="assets/schematic.png" alt="Remote water pump controller circuit schematic" width="100%">
 </p>
 
 ## 📱 SMS Command Reference
