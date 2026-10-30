@@ -1,8 +1,12 @@
-#include <SoftwareSerial.h>
+#include <Arduino.h>
 #include <string.h>
 #include <avr/wdt.h>
 
+#include "PumpController.h"
+#include "SmsService.h"
 
+
+/* Change this to match your valid phone number*/
 char *validNums[] = {
   "+381695410XXX",
   "+38163509XXX"
@@ -42,9 +46,7 @@ int notificationOn = 1;
 
 int notificationCounter = 1;
 
-SoftwareSerial SIM800L(2, 3);
-
-void setup()
+void pumpControllerSetup()
 {
   pinMode(13, OUTPUT);
   Serial.begin(115200);
@@ -85,7 +87,7 @@ void setup()
 
 }
 
-void loop()
+void pumpControllerLoop()
 {
   //Serial.println(analogRead(A0));
   charNum = 0;
@@ -531,25 +533,3 @@ void checkSsystemValidation()
   }
 }
 
-
-void SendSMS(String phoneNumber, String message)
-{
-  // Postavi broj telefona
-  SIM800L.print("AT+CMGS=\"");
-  SIM800L.print(phoneNumber);
-  SIM800L.println("\"");
-  delay(100);
-
-  // Pošalji poruku
-  SIM800L.print(message);
-  delay(100);
-
-  // Pošalji Ctrl+Z (ASCII 26) da označiš kraj poruke
-  SIM800L.write(26);
-  delay(8000);
-
-  while (SIM800L.available()) {
-    Serial.write(SIM800L.read());
-  }
-
-}
