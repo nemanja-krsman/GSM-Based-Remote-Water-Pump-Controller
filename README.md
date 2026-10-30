@@ -5,8 +5,8 @@
 Designed for field deployment, this embedded system enables remote pump operation, timer-based control, status monitoring, and error notifications without requiring a local internet connection.
 
 <p align="center">
-  <img src="assets/field_instalation.png" alt="Remote water pump controller installed in the field" width="48%">
-  <img src="assets/pcb_in_box.png" alt="Assembled remote pump controller PCB" width="48%">
+  <img src="doc/field_instalation.png" alt="Remote water pump controller installed in the field" width="48%">
+  <img src="doc/pcb_in_box.png" alt="Assembled remote pump controller PCB" width="48%">
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@ The controller uses a SIM800L GSM module to receive SMS commands and an Arduino 
 A relay-controlled contactor switches the pump's 220 V AC power circuit, while the firmware handles command parsing, timer management, status verification, error notifications, and automatic recovery.
 
 <p align="center">
-  <img src="assets/system_overview.png" alt="System block diagram showing GSM communication, Arduino Nano, relay, contactor, and pump" width="90%">
+  <img src="doc/system_overview.png" alt="System block diagram showing GSM communication, Arduino Nano, relay, contactor, and pump" width="90%">
 </p>
 
 <p align="center">
@@ -36,7 +36,10 @@ A relay-controlled contactor switches the pump's 220 V AC power circuit, while t
 The schematic shows the electronic design connecting the microcontroller, GSM module, power regulation, and relay driver.
 
 <p align="center">
-  <img src="assets/schematic.png" alt="Remote water pump controller circuit schematic" width="100%">
+  <img src="doc/power_supply.png" alt="Remote water pump controller circuit schematic" width="100%">
+  <img src="doc/gsm_module.png" alt="Remote water pump controller circuit schematic" width="100%">
+  <img src="doc/relay_circuit.png" alt="Remote water pump controller circuit schematic" width="100%">
+  <img src="doc/relay_switch.png" alt="Remote water pump controller circuit schematic" width="100%">
 </p>
 
 ## 📱 SMS Command Reference
@@ -69,7 +72,7 @@ The status response provides information about the relay state, remaining timer 
 
 ## ⚙️ Firmware
 
-The complete Arduino firmware is available in the [`firmware/`](firmware/) directory.
+The complete Arduino firmware is available in the [`firmware/`](firmware/) directory. See the [software flow and firmware architecture](doc/SoftwareFlow.md) for an overview of the sketch lifecycle, SMS handling, command processing, and pump monitoring.
 
 **Main technologies:**
 - Arduino Nano / ATmega328P
@@ -82,7 +85,7 @@ The complete Arduino firmware is available in the [`firmware/`](firmware/) direc
 ## 🛠️ PCB Design
 
 <p align="center">
-  <img src="assets/pcb_layout.png" alt="Custom PCB layout" width="85%">
+  <img src="doc/pcb_layout.png" alt="Custom PCB layout" width="85%">
 </p>
 
 The custom PCB integrates the main control and communication electronics into a compact assembly suitable for installation in a protective enclosure.
@@ -117,4 +120,3 @@ This project demonstrates practical experience in:
 - **Watchdog Recovery:** Automatically restart the controller if firmware execution becomes unresponsive.
 
 ---
-
